@@ -1,0 +1,220 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+
+.sa-page {
+  --elo-bg: #eef1ee;
+  --elo-surface: #ffffff;
+  --elo-primary: #1d720a;
+  --elo-primary-dark: #145207;
+  --elo-primary-darker: #0f3d05;
+  --elo-ink: #0e130f;
+  --elo-muted: #3f4a43;
+  --elo-border: #7fbf63;
+  --elo-danger: #b3261e;
+  --elo-danger-bg: #fdecea;
+  --elo-focus: #7c3aed;
+  --elo-font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --elo-font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 48px 20px;
+  background: var(--elo-bg);
+  font-family: var(--elo-font-body);
+  color: var(--elo-ink);
+}
+
+.sa-page,
+.sa-page * {
+  box-sizing: border-box;
+}
+
+.sa-card {
+  width: 100%;
+  max-width: 640px;
+  background: var(--elo-surface);
+  border: 1.8px solid var(--elo-border);
+  border-radius: 18px;
+  padding: 36px 40px 40px;
+}
+
+.sa-title {
+  font-family: var(--elo-font-display);
+  font-weight: 600;
+  font-size: 28px;
+  text-align: center;
+  margin: 0 0 8px;
+  color: var(--elo-ink);
+}
+
+.sa-subtitle {
+  text-align: center;
+  font-size: 15px;
+  color: var(--elo-muted);
+  margin: 0 0 28px;
+}
+
+.sa-section {
+  font-family: var(--elo-font-body);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--elo-primary-dark);
+  text-align: center;
+  border-bottom: 1.6px solid var(--elo-border);
+  padding-bottom: 12px;
+  margin: 32px 0 24px;
+}
+
+.sa-field {
+  margin-bottom: 20px;
+}
+
+.sa-label {
+  display: block;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--elo-ink);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.sa-required {
+  color: var(--elo-danger);
+}
+
+.sa-input,
+.sa-textarea,
+.sa-select {
+  width: 100%;
+  border: 1.8px solid var(--elo-border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-family: var(--elo-font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--elo-ink);
+  background: var(--elo-surface);
+}
+
+.sa-input::placeholder,
+.sa-textarea::placeholder {
+  color: #6b756f;
+  font-weight: 400;
+}
+
+.sa-textarea {
+  resize: vertical;
+  min-height: 96px;
+}
+
+.sa-input:focus,
+.sa-textarea:focus,
+.sa-select:focus {
+  outline: none;
+  border-color: var(--elo-focus);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.18);
+}
+
+.sa-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23145207' stroke-width='2.4'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+.sa-error {
+  display: block;
+  margin-top: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--elo-danger);
+  text-align: center;
+}
+
+.sa-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--elo-danger-bg);
+  border: 1.8px solid var(--elo-danger);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+  color: var(--elo-danger);
+  font-weight: 600;
+  font-size: 14.5px;
+  line-height: 1.4;
+}
+
+.sa-alert-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--elo-danger);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.sa-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.sa-btn {
+  font-family: var(--elo-font-body);
+  font-weight: 700;
+  font-size: 15px;
+  border-radius: 8px;
+  padding: 12px 28px;
+  cursor: pointer;
+  border: 1.8px solid transparent;
+  transition: background 0.15s ease, transform 0.08s ease;
+}
+
+.sa-btn-primary {
+  background: var(--elo-primary);
+  color: #ffffff;
+}
+.sa-btn-primary:hover {
+  background: var(--elo-primary-dark);
+}
+.sa-btn-primary:active {
+  transform: translateY(1px);
+}
+
+.sa-btn-secondary {
+  background: var(--elo-surface);
+  color: var(--elo-primary-dark);
+  border-color: var(--elo-border);
+}
+.sa-btn-secondary:hover {
+  background: #f2f7ef;
+}
+
+.sa-btn:focus-visible {
+  outline: 2.5px solid var(--elo-focus);
+  outline-offset: 2px;
+}
+
+@media (max-width: 520px) {
+  .sa-card {
+    padding: 28px 22px 32px;
+  }
+  .sa-actions {
+    flex-direction: column-reverse;
+  }
+  .sa-btn {
+    width: 100%;
+  }
+}

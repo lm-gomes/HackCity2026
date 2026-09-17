@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+.ti-shell {
+  --elo-bg: #eef1ee;
+  --elo-surface: #ffffff;
+  --elo-card-bg: #eef3ea;
+  --elo-primary: #1d720a;
+  --elo-primary-dark: #145207;
+  --elo-primary-darker: #0f3d05;
+  --elo-ink: #0e130f;
+  --elo-muted: #3f4a43;
+  --elo-border: #7fbf63;
+  --elo-focus: #7c3aed;
+  --elo-font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --elo-font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+.ti-shell,
+.ti-shell * {
+  box-sizing: border-box;
+}
+
+.ti-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--elo-bg);
+  color: var(--elo-ink);
+  font-family: var(--elo-font-body);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Brand bar ---------- */
+.ti-brandbar {
+  background: var(--elo-primary-darker);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 28px;
+  font-family: var(--elo-font-display);
+  font-weight: 600;
+  font-size: 19px;
+}
+.ti-brand-mark {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.8px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ti-brand-mark svg {
+  width: 13px;
+  height: 13px;
+}
+
+/* ---------- Nav bar ---------- */
+.ti-navbar {
+  background: var(--elo-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+}
+.ti-navbar-title {
+  font-weight: 600;
+  font-size: 17px;
+}
+.ti-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.ti-sair {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-family: var(--elo-font-body);
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 4px 2px;
+}
+.ti-sair:hover {
+  text-decoration: underline;
+}
+.ti-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.6px solid rgba(255, 255, 255, 0.7);
+  display: inline-block;
+}
+
+/* ---------- Content / cards ---------- */
+.ti-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 24px;
+  background: var(--elo-bg);
+}
+
+.ti-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  max-width: 980px;
+}
+
+.ti-card {
+  width: 210px;
+  min-height: 210px;
+  background: var(--elo-card-bg);
+  border: 1.8px solid var(--elo-border);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 28px 20px;
+  cursor: pointer;
+  font-family: var(--elo-font-body);
+  color: var(--elo-primary-dark);
+  transition: border-color 0.15s ease, transform 0.08s ease, box-shadow 0.15s ease;
+}
+
+.ti-card:hover {
+  border-color: var(--elo-primary);
+  box-shadow: 0 4px 14px rgba(29, 114, 10, 0.18);
+}
+.ti-card:active {
+  transform: translateY(1px);
+}
+.ti-card:focus-visible {
+  outline: 2.5px solid var(--elo-focus);
+  outline-offset: 3px;
+  border-color: var(--elo-focus);
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.18);
+}
+
+.ti-card-icon {
+  width: 58px;
+  height: 58px;
+  color: var(--elo-primary);
+}
+.ti-card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ti-card-label {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.35;
+  color: var(--elo-primary-darker);
+}
+
+/* ---------- Footer ---------- */
+.ti-footer {
+  background: var(--elo-primary);
+  color: #ffffff;
+  text-align: center;
+  font-size: 14.5px;
+  font-weight: 500;
+  padding: 16px 20px;
+}
+
+@media (max-width: 640px) {
+  .ti-grid {
+    gap: 18px;
+  }
+  .ti-card {
+    width: 160px;
+    min-height: 170px;
+  }
+}

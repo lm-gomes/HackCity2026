@@ -1,0 +1,76 @@
+// ---------------------------------------------------------------------------
+// Dados mockados. Quando o backend estiver disponível, substitua as
+// constantes abaixo por chamadas reais, por exemplo:
+//
+//   export async function fetchPaciente(id) {
+//     const res = await fetch(`/api/pacientes/${id}`);
+//     return res.json();
+//   }
+//
+//   export async function fetchHistorico(id) {
+//     const res = await fetch(`/api/pacientes/${id}/historico`);
+//     return res.json();
+//   }
+//
+// e troque os imports de MOCK_PACIENTE / MOCK_HISTORICO no componente pelas
+// chamadas async correspondentes (useEffect + useState, React Query, etc).
+// ---------------------------------------------------------------------------
+
+export const MOCK_PACIENTE = {
+  nome: "Maria da Silva Souza",
+  dataDeNascimento: "2014-03-22",
+  telefone: "(85) 99123-4567",
+  sexo: "Feminino",
+  endereco: "Rua das Acácias, 245 - Centro, Crateús/CE",
+  cns: "701 2345 6789 0123",
+};
+
+// status: "espera" | "marcado" | "atendido" | "cancelado"
+// orgao:  "NAPE" | "NASF"
+// prioridade: "Alta" | "Média" | "Baixa"
+export const MOCK_HISTORICO = [
+  {
+    id: 1,
+    nomePaciente: "Maria da Silva Souza",
+    status: "marcado",
+    telefone: "(85) 99123-4567",
+    orgao: "NAPE",
+    prioridade: "Alta",
+    data: "2026-09-22",
+    tipo: "Anamnese Psicopedagógica",
+    dataEntrada: "2026-08-10",
+  },
+  {
+    id: 2,
+    nomePaciente: "Maria da Silva Souza",
+    status: "atendido",
+    telefone: "(85) 99123-4567",
+    orgao: "NASF",
+    prioridade: "Média",
+    data: "2026-07-15",
+    tipo: "Instrumental da Ed. Física",
+    dataEntrada: "2026-06-30",
+  },
+  {
+    id: 3,
+    nomePaciente: "Maria da Silva Souza",
+    status: "espera",
+    telefone: "(85) 99123-4567",
+    orgao: "NAPE",
+    prioridade: "Baixa",
+    data: "2026-10-02",
+    tipo: "Anamnese Psicológica",
+    dataEntrada: "2026-09-05",
+  },
+  {
+    id: 4,
+    nomePaciente: "Maria da Silva Souza",
+    status: "cancelado",
+    telefone: "(85) 99123-4567",
+    orgao: "NASF",
+    prioridade: "Média",
+    data: "2026-05-11",
+    tipo: "Anamnese Psicopedagógica",
+    dataEntrada: "2026-04-20",
+  },
+];

@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+.pf-root {
+  /* Tema claro fixo, com mais contraste (não segue mais o modo escuro do sistema) */
+  --elo-bg: #eef2ee;
+  --elo-surface: #ffffff;
+  --elo-primary: #1d720a;
+  --elo-primary-dark: #145207;
+  --elo-primary-darker: #0f3d05;
+  --elo-ink: #0e130f;
+  --elo-muted: #3f4a43;
+  --elo-border: #8fc77c;
+  --elo-danger: #8f1d16;
+  --elo-font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --elo-font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--elo-bg);
+  color: var(--elo-ink);
+  font-family: var(--elo-font-body);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.pf-root * { box-sizing: border-box; }
+
+.pf-brandbar {
+  background: var(--elo-primary-darker);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 28px;
+  font-family: var(--elo-font-display);
+  font-weight: 600;
+  font-size: 19px;
+}
+.pf-brand-mark {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.6px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pf-navbar {
+  background: var(--elo-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+}
+.pf-navbar-title { font-weight: 600; font-size: 17px; }
+
+.pf-content {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 20px 60px;
+}
+
+.pf-card {
+  width: 100%;
+  max-width: 760px;
+  background: var(--elo-surface);
+  border: 2px solid var(--elo-border);
+  border-radius: 14px;
+  padding: 34px 38px 38px;
+}
+
+.pf-title {
+  font-family: var(--elo-font-display);
+  font-weight: 600;
+  font-size: 25px;
+  color: var(--elo-ink);
+  margin: 0 0 6px;
+}
+.pf-subtitle { font-size: 15px; color: var(--elo-muted); margin: 0 0 30px; }
+
+.pf-section-title {
+  font-family: var(--elo-font-display);
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--elo-primary-dark);
+  margin: 30px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1.8px solid var(--elo-border);
+}
+.pf-section-title.first { margin-top: 0; }
+
+.pf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 22px;
+}
+.pf-field-full { grid-column: 1 / -1; }
+
+.pf-field { display: flex; flex-direction: column; gap: 7px; }
+.pf-field label { font-size: 14.5px; font-weight: 700; color: var(--elo-ink); }
+.pf-field .pf-req { color: var(--elo-danger); }
+
+.pf-field input, .pf-field select {
+  font-family: var(--elo-font-body);
+  font-size: 16px;
+  color: var(--elo-ink);
+  background: var(--elo-surface);
+  border: 1.8px solid var(--elo-border);
+  border-radius: 8px;
+  padding: 11px 13px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.pf-field input:focus, .pf-field select:focus {
+  border-color: var(--elo-primary);
+  box-shadow: 0 0 0 3px rgba(29, 114, 10, 0.18);
+}
+.pf-field input.invalid, .pf-field select.invalid { border-color: var(--elo-danger); }
+.pf-field-error { font-size: 13px; font-weight: 500; color: var(--elo-danger); min-height: 16px; }
+
+.pf-actions { margin-top: 32px; display: flex; justify-content: flex-end; gap: 14px; }
+
+.pf-btn {
+  font-family: var(--elo-font-body);
+  font-weight: 700;
+  font-size: 15.5px;
+  border-radius: 999px;
+  padding: 12px 28px;
+  cursor: pointer;
+  border: 1.8px solid transparent;
+  transition: background 0.15s ease, transform 0.08s ease;
+}
+.pf-btn:active { transform: translateY(1px); }
+.pf-btn-primary { background: var(--elo-primary); color: #ffffff; }
+.pf-btn-primary:hover { background: var(--elo-primary-dark); }
+.pf-btn-secondary { background: transparent; border-color: var(--elo-primary); color: var(--elo-primary-darker); }
+.pf-btn-secondary:hover { background: rgba(29, 114, 10, 0.08); }
+
+.pf-success-banner {
+  margin-bottom: 24px;
+  padding: 13px 18px;
+  background: rgba(29, 114, 10, 0.12);
+  border: 1.8px solid var(--elo-primary);
+  border-radius: 10px;
+  color: var(--elo-primary-darker);
+  font-size: 14.5px;
+  font-weight: 700;
+}
+
+.pf-footer {
+  background: var(--elo-primary);
+  color: #ffffff;
+  text-align: center;
+  font-size: 14.5px;
+  font-weight: 500;
+  padding: 16px 20px;
+}
+
+@media (max-width: 640px) {
+  .pf-grid { grid-template-columns: 1fr; }
+  .pf-card { padding: 26px 22px 30px; }
+}
