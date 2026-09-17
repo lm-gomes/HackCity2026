@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
 function validEmail(v) {
@@ -6,6 +7,7 @@ function validEmail(v) {
 }
 
 export default function Login({ onSubmit }) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [remember, setRemember] = useState(false);
@@ -14,68 +16,69 @@ export default function Login({ onSubmit }) {
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const nextErrors = { email: "", senha: "" };
-  let ok = true;
+    const nextErrors = { email: "", senha: "" };
+    let ok = true;
 
-  if (!validEmail(email)) {
-    nextErrors.email = "Informe um e-mail válido.";
-    ok = false;
-  }
+    if (!validEmail(email)) {
+      nextErrors.email = "Informe um e-mail válido.";
+      ok = false;
+    }
 
-  if (senha.length < 1) {
-    nextErrors.senha = "Informe sua senha.";
-    ok = false;
-  }
+    if (senha.length < 1) {
+      nextErrors.senha = "Informe sua senha.";
+      ok = false;
+    }
 
-  setErrors(nextErrors);
+    setErrors(nextErrors);
 
-  if (!ok) {
-    setJsonPreview(null);
-    return;
-  }
+    if (!ok) {
+      setJsonPreview(null);
+      return;
+    }
 
-  const payload = {
-    email: email.trim(),
-    senha: senha
-  };
+    const payload = {
+      email: email.trim(),
+      senha: senha,
+    };
 
-  setJsonPreview({
-    data: payload,
-    time: new Date().toLocaleTimeString("pt-BR"),
-  });
-
-  setLoading(true);
-
-  try {
-    const res = await fetch("http://localhost:8080/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload),
+    setJsonPreview({
+      data: payload,
+      time: new Date().toLocaleTimeString("pt-BR"),
     });
 
-    const data = await res.text();
+    setLoading(true);
 
-    if (!res.ok) {
-      throw new Error(data);
+    try {
+      const res = await fetch("http://localhost:8080/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const data = await res.text();
+
+      if (!res.ok) {
+        throw new Error(data);
+      }
+
+      if (onSubmit) {
+        onSubmit(data);
+      }
+
+      navigate("/Inicial");
+    } catch (err) {
+      setErrors((prev) => ({
+        ...prev,
+        senha: "Não foi possível entrar. Verifique os dados e tente novamente.",
+      }));
+    } finally {
+      setLoading(false);
     }
-
-    if (onSubmit) {
-      onSubmit(data);
-    }
-
-  } catch (err) {
-    setErrors((prev) => ({
-      ...prev,
-      senha: "Não foi possível entrar. Verifique os dados e tente novamente.",
-    }));
-  } finally {
-    setLoading(false);
   }
-}
 
   return (
     <div className="elo-shell">
@@ -83,7 +86,7 @@ export default function Login({ onSubmit }) {
       <div className="elo-brand">
         <div>
           <div className="elo-brand-copy">
-            <h1>Um só histórico. Todos os órgãos.</h1>
+            <h1>Um só histórico. Todas informações.</h1>
             <p>O sistema integrado vai garantir que seus dados sejam unificados!</p>
           </div>
         </div>

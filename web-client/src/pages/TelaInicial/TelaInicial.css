@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+:root {
+  --elo-bg: #f6f7f8;
+  --elo-surface: #ffffff;
+  --elo-primary: #1d720a;
+  --elo-primary-dark: #145207;
+  --elo-primary-darker: #0f3d05;
+  --elo-ink: #182018;
+  --elo-muted: #5b6b62;
+  --elo-border: #bfe0b2;
+  --elo-font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --elo-font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --elo-bg: #10140f;
+    --elo-surface: #161c14;
+    --elo-primary: #37a61c;
+    --elo-primary-dark: #2c8515;
+    --elo-primary-darker: #1d5c0d;
+    --elo-ink: #eaf1e7;
+    --elo-muted: #9aac9e;
+    --elo-border: #2e4527;
+  }
+}
+
+.ti-shell,
+.ti-shell * {
+  box-sizing: border-box;
+}
+
+.ti-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--elo-bg);
+  color: var(--elo-ink);
+  font-family: var(--elo-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Brand bar ---------- */
+.ti-brandbar {
+  background: var(--elo-primary-darker);
+  color: #f3f8f1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  font-family: var(--elo-font-display);
+  font-weight: 600;
+  font-size: 17px;
+}
+.ti-brand-mark {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.6px solid #f3f8f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ti-brand-mark svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ---------- Nav bar ---------- */
+.ti-navbar {
+  background: var(--elo-primary);
+  color: #f3f8f1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+}
+.ti-navbar-title {
+  font-weight: 600;
+  font-size: 15px;
+}
+.ti-navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.ti-sair {
+  background: none;
+  border: none;
+  color: #f3f8f1;
+  font-family: var(--elo-font-body);
+  font-weight: 500;
+  font-size: 14.5px;
+  cursor: pointer;
+  padding: 4px 2px;
+}
+.ti-sair:hover {
+  text-decoration: underline;
+}
+
+.ti-toggle {
+  width: 42px;
+  height: 24px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(243, 248, 241, 0.35);
+  padding: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background 0.15s ease;
+}
+.ti-toggle-on {
+  background: rgba(243, 248, 241, 0.9);
+}
+.ti-toggle-knob {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #f3f8f1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transform: translateX(0);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.ti-toggle-on .ti-toggle-knob {
+  transform: translateX(18px);
+  background: var(--elo-primary);
+}
+.ti-toggle:focus-visible {
+  outline: 2px solid #f3f8f1;
+  outline-offset: 2px;
+}
+
+/* ---------- Content / cards ---------- */
+.ti-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background-color: #F6F7F8;
+}
+.ti-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+  max-width: 900px;
+}
+
+.ti-card {
+  width: 170px;
+  min-height: 170px;
+  background-color: #175B08;
+  border: 1.6px solid var(--elo-border);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 20px 14px;
+  cursor: pointer;
+  font-family: var(--elo-font-body);
+  color: var(--elo-ink);
+  transition: border-color 0.15s ease, transform 0.08s ease, box-shadow 0.15s ease;
+}
+.ti-card:hover {
+  border-color: var(--elo-primary);
+  box-shadow: 0 4px 14px rgba(29, 114, 10, 0.14);
+}
+.ti-card:active {
+  transform: translateY(1px);
+}
+.ti-card:focus-visible {
+  outline: 2px solid var(--elo-primary);
+  outline-offset: 2px;
+}
+
+.ti-card-icon {
+  width: 44px;
+  height: 44px;
+  color: var(--elo-primary);
+}
+.ti-card-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ti-card-label {
+  font-size: 13.5px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.35;
+}
+
+/* ---------- Footer ---------- */
+.ti-footer {
+  background: var(--elo-primary);
+  color: #f3f8f1;
+  text-align: center;
+  font-size: 13.5px;
+  padding: 14px 20px;
+}
+
+@media (max-width: 640px) {
+  .ti-grid {
+    gap: 16px;
+  }
+  .ti-card {
+    width: 140px;
+    min-height: 150px;
+  }
+}
