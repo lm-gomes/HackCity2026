@@ -1,9 +1,21 @@
 package com.manager.hcity.models;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+@Entity 
 public class Paciente {
-    private String numeroProntuario;
+
+    @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long numeroProntuario;
     private String hipoteseDiagnostica;
     private Date dataDaAbertura;
     private String nome;
@@ -18,6 +30,9 @@ public class Paciente {
     private String nomeResponsavel;
     private String cnsDoResponsavel;
     private String dataDeNascimentoResponsavel;
+
+    @OneToMany(mappedBy = "paciente")
+   private List<Atendimento> atendimentos = new ArrayList<>();
 
     public String getCns() {
         return cns;
@@ -63,7 +78,7 @@ public class Paciente {
         return nomeResponsavel;
     }
 
-    public String getNumeroProntuario() {
+    public Long getNumeroProntuario() {
         return numeroProntuario;
     }
 
@@ -123,7 +138,7 @@ public class Paciente {
         this.nomeResponsavel = nomeResponsavel;
     }
 
-    public void setNumeroProntuario(String numeroProntuario) {
+    public void setNumeroProntuario(Long numeroProntuario) {
         this.numeroProntuario = numeroProntuario;
     }
 
