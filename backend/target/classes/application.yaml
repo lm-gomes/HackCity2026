@@ -1,3 +1,12 @@
 spring:
   application:
     name: hcity
+
+  datasource:
+    url: jdbc:mysql://mysql:3306/minha_aplicacao
+    username: app
+    password: app_password
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
