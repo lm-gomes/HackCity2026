@@ -14,58 +14,68 @@ export default function Login({ onSubmit }) {
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    const nextErrors = { email: "", senha: "" };
-    let ok = true;
+  const nextErrors = { email: "", senha: "" };
+  let ok = true;
 
-    if (!validEmail(email)) {
-      nextErrors.email = "Informe um e-mail válido.";
-      ok = false;
-    }
-    if (senha.length < 1) {
-      nextErrors.senha = "Informe sua senha.";
-      ok = false;
-    }
+  if (!validEmail(email)) {
+    nextErrors.email = "Informe um e-mail válido.";
+    ok = false;
+  }
 
-    setErrors(nextErrors);
+  if (senha.length < 1) {
+    nextErrors.senha = "Informe sua senha.";
+    ok = false;
+  }
 
-    if (!ok) {
-      setJsonPreview(null);
-      return;
-    }
+  setErrors(nextErrors);
 
-    const payload = { email: email.trim(), senha };
+  if (!ok) {
+    setJsonPreview(null);
+    return;
+  }
 
-    setJsonPreview({
-      data: payload,
-      time: new Date().toLocaleTimeString("pt-BR"),
+  const payload = {
+    email: email.trim(),
+    senha: senha
+  };
+
+  setJsonPreview({
+    data: payload,
+    time: new Date().toLocaleTimeString("pt-BR"),
+  });
+
+  setLoading(true);
+
+  try {
+    const res = await fetch("http://localhost:8080/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload),
     });
 
-    setLoading(true);
-    try {
-      const res = await fetch("/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+    const data = await res.text();
 
-      if (!res.ok) {
-        throw new Error(`Erro ${res.status}`);
-      }
-
-      const data = await res.json();
-      // redirecionar, salvar token, etc.
-      if (onSubmit) onSubmit(data);
-    } catch (err) {
-      setErrors((prev) => ({
-        ...prev,
-        senha: "Não foi possível entrar. Verifique os dados e tente novamente.",
-      }));
-    } finally {
-      setLoading(false);
+    if (!res.ok) {
+      throw new Error(data);
     }
+
+    if (onSubmit) {
+      onSubmit(data);
+    }
+
+  } catch (err) {
+    setErrors((prev) => ({
+      ...prev,
+      senha: "Não foi possível entrar. Verifique os dados e tente novamente.",
+    }));
+  } finally {
+    setLoading(false);
   }
+}
 
   return (
     <div className="elo-shell">
