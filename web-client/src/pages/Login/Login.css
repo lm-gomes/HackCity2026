@@ -1,44 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap");
 
 :root {
-  --elo-bg: #f6f7f8;
+  /* Tema claro fixo, com mais contraste (não segue mais o modo escuro do sistema) */
+  --elo-bg: #eef2ee;
   --elo-surface: #ffffff;
   --elo-primary: #1d720a;
   --elo-primary-dark: #145207;
-  --elo-ink: #182018;
-  --elo-muted: #5b6b62;
-  --elo-border: #dce2dd;
-  --elo-tint: #e9f1e6;
-  --elo-danger: #b3261e;
+  --elo-ink: #0e130f;
+  --elo-muted: #3f4a43;
+  --elo-border: #a9c9a0;
+  --elo-tint: #e3f0dd;
+  --elo-danger: #8f1d16;
   --elo-font-display: "Fraunces", Georgia, "Times New Roman", serif;
   --elo-font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   --elo-font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --elo-bg: #10140f;
-    --elo-surface: #161c14;
-    --elo-primary: #37a61c;
-    --elo-primary-dark: #2c8515;
-    --elo-ink: #eaf1e7;
-    --elo-muted: #9aac9e;
-    --elo-border: #2a332a;
-    --elo-tint: #1c2818;
-    --elo-danger: #e5766b;
-  }
-}
-:root[data-theme="dark"] {
-  --elo-bg: #10140f;
-  --elo-surface: #161c14;
-  --elo-primary: #37a61c;
-  --elo-primary-dark: #2c8515;
-  --elo-ink: #eaf1e7;
-  --elo-muted: #9aac9e;
-  --elo-border: #2a332a;
-  --elo-tint: #1c2818;
-  --elo-danger: #e5766b;
 }
 
 .elo-shell,
@@ -53,6 +29,7 @@
   background: var(--elo-bg);
   color: var(--elo-ink);
   font-family: var(--elo-font-body);
+  font-size: 16px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -60,7 +37,7 @@
 .elo-brand {
   position: relative;
   background: var(--elo-primary);
-  color: #f3f8f1;
+  color: #ffffff;
   padding: 56px 64px;
   display: flex;
   flex-direction: column;
@@ -71,25 +48,24 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  ;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 24px;
   letter-spacing: 0.01em;
   z-index: 2;
   position: relative;
 }
 .elo-brand-mark {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  border: 2px solid #f3f8f1;
+  border: 2px solid #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .elo-brand-mark svg {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
 }
 
 .elo-brand-copy {
@@ -99,17 +75,17 @@
   justify-self: center;
 }
 .elo-brand-copy h1 {
-  
-  font-weight: 500;
-  font-size: clamp(32px, 3.4vw, 44px);
-  line-height: 1.12;
+  font-weight: 600;
+  font-size: clamp(34px, 3.6vw, 46px);
+  line-height: 1.14;
   letter-spacing: -0.01em;
   margin: 0 0 18px;
+  color: #ffffff;
 }
 .elo-brand-copy p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #dcebd6;
+  font-size: 17px;
+  line-height: 1.65;
+  color: #ffffff;
   margin: 0;
   max-width: 38ch;
   justify-self: center;
@@ -128,8 +104,9 @@
 }
 .elo-diagram-caption {
   margin-top: 14px;
-  font-size: 13px;
-  color: #bfddb6;
+  font-size: 14px;
+  font-weight: 500;
+  color: #eaf7e4;
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
@@ -150,10 +127,10 @@
 .elo-brand-foot {
   z-index: 2;
   position: relative;
-
-  font-size: 12px;
-  color: #bfddb6;
-  border-top: 1px solid rgba(243, 248, 241, 0.25);
+  font-size: 13px;
+  font-weight: 500;
+  color: #eaf7e4;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
   padding-top: 16px;
   display: flex;
   justify-content: space-between;
@@ -168,7 +145,7 @@
   width: 420px;
   height: 420px;
   border-radius: 50%;
-  border: 1px solid rgba(243, 248, 241, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .elo-brand::before {
   content: "";
@@ -178,7 +155,7 @@
   width: 420px;
   height: 420px;
   border-radius: 50%;
-  border: 1px solid rgba(243, 248, 241, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 /* ---------- Right panel ---------- */
@@ -187,50 +164,50 @@
   align-items: center;
   justify-content: center;
   padding: 48px 32px;
+  background: var(--elo-surface);
 }
 .elo-card {
   width: 100%;
-  max-width: 380px;
+  max-width: 400px;
 }
 .elo-card h2 {
- 
-  font-weight: 500;
-  font-size: 30px;
+  font-weight: 600;
+  font-size: 32px;
   margin: 0 0 8px;
   letter-spacing: -0.01em;
-  color: #f3f8f1;;
+  color: var(--elo-ink);
 }
 .elo-lede {
   margin: 0 0 32px;
   color: var(--elo-muted);
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.55;
 }
 
 .elo-card label {
   display: block;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--elo-ink);
-  margin-bottom: 6px;
+  margin-bottom: 7px;
 }
 .elo-field {
   margin-bottom: 18px;
 }
 .elo-field input {
   width: 100%;
-  padding: 12px 14px;
+  padding: 13px 15px;
   border-radius: 8px;
-  border: 1px solid var(--elo-border);
+  border: 1.8px solid var(--elo-border);
   background: var(--elo-surface);
   color: var(--elo-ink);
   font-family: var(--elo-font-body);
-  font-size: 15px;
+  font-size: 16px;
   outline: none;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 .elo-field input::placeholder {
-  color: #97a69c;
+  color: #6b786f;
 }
 .elo-field input:focus {
   border-color: var(--elo-primary);
@@ -240,7 +217,8 @@
   border-color: var(--elo-danger);
 }
 .elo-field-msg {
-  font-size: 12.5px;
+  font-size: 13px;
+  font-weight: 500;
   margin-top: 6px;
   color: var(--elo-danger);
   min-height: 0;
@@ -251,24 +229,24 @@
   align-items: center;
   justify-content: space-between;
   margin: 4px 0 26px;
-  font-size: 13.5px;
+  font-size: 14.5px;
 }
 .elo-remember {
   display: flex;
   align-items: center;
   gap: 8px;
-  color: var(--elo-muted);
-  font-weight: 400 !important;
+  color: var(--elo-ink);
+  font-weight: 500 !important;
 }
 .elo-remember input {
   accent-color: var(--elo-primary);
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
 }
 .elo-row-between a {
-  color: var(--elo-primary);
+  color: var(--elo-primary-dark);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
 }
 .elo-row-between a:hover {
   text-decoration: underline;
@@ -276,14 +254,14 @@
 
 .elo-submit {
   width: 100%;
-  padding: 13px 16px;
+  padding: 14px 16px;
   border-radius: 8px;
   border: none;
   background: var(--elo-primary);
-  color: #f3f8f1;
+  color: #ffffff;
   font-family: var(--elo-font-body);
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 700;
+  font-size: 16px;
   cursor: pointer;
   transition: background 0.15s ease, transform 0.05s ease;
 }
@@ -304,7 +282,8 @@
   gap: 12px;
   margin: 26px 0;
   color: var(--elo-muted);
-  font-size: 12.5px;
+  font-size: 13px;
+  font-weight: 500;
 }
 .elo-divider::before,
 .elo-divider::after {
@@ -316,12 +295,12 @@
 
 .elo-help {
   text-align: center;
-  font-size: 13.5px;
-  color: var(--elo-muted);
+  font-size: 14.5px;
+  color: var(--elo-ink);
 }
 .elo-help a {
-  color: var(--elo-primary);
-  font-weight: 500;
+  color: var(--elo-primary-dark);
+  font-weight: 700;
   text-decoration: none;
 }
 .elo-help a:hover {
@@ -331,7 +310,7 @@
 /* JSON output preview */
 .elo-json-panel {
   margin-top: 26px;
-  border: 1px solid var(--elo-border);
+  border: 1.8px solid var(--elo-border);
   border-radius: 8px;
   background: var(--elo-tint);
   overflow: hidden;
@@ -344,7 +323,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 14px;
-  font-size: 12px;
+  font-size: 12.5px;
+  font-weight: 600;
   color: var(--elo-muted);
   font-family: var(--elo-font-mono);
 }
@@ -352,7 +332,7 @@
   margin: 0;
   padding: 0 14px 14px;
   font-family: var(--elo-font-mono);
-  font-size: 12.5px;
+  font-size: 13px;
   color: var(--elo-ink);
   white-space: pre-wrap;
   word-break: break-all;

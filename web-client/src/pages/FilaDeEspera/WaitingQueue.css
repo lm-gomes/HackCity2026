@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+.wq-root {
+  /* Tema claro fixo, com alto contraste */
+  --elo-bg: #eef2ee;
+  --elo-surface: #ffffff;
+  --elo-primary: #1d720a;
+  --elo-primary-dark: #145207;
+  --elo-primary-darker: #0f3d05;
+  --elo-ink: #0e130f;
+  --elo-muted: #3f4a43;
+  --elo-border: #8fc77c;
+  --elo-danger: #8f1d16;
+  --elo-warning: #7a4d03;
+  --elo-info: #143f75;
+  --elo-font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --elo-font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--elo-bg);
+  color: var(--elo-ink);
+  font-family: var(--elo-font-body);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.wq-root * { box-sizing: border-box; }
+
+/* ---------- Brand / Nav ---------- */
+.wq-brandbar {
+  background: var(--elo-primary-darker);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 28px;
+  font-family: var(--elo-font-display);
+  font-weight: 600;
+  font-size: 19px;
+}
+.wq-brand-mark {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.6px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.wq-navbar {
+  background: var(--elo-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+}
+.wq-navbar-title { font-weight: 600; font-size: 17px; }
+
+/* ---------- Layout ---------- */
+.wq-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 32px 20px 60px;
+}
+.wq-container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---------- Toolbar: busca + filtro ---------- */
+.wq-toolbar {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  background: var(--elo-surface);
+  border: 2px solid var(--elo-border);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+.wq-search {
+  flex: 2 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.wq-filter {
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.wq-toolbar label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--elo-muted);
+}
+.wq-toolbar input,
+.wq-toolbar select {
+  font-family: var(--elo-font-body);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--elo-ink);
+  background: var(--elo-surface);
+  border: 1.8px solid var(--elo-border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  outline: none;
+}
+.wq-toolbar input:focus,
+.wq-toolbar select:focus {
+  border-color: var(--elo-primary);
+  box-shadow: 0 0 0 3px rgba(29, 114, 10, 0.18);
+}
+
+.wq-results-count {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--elo-muted);
+  padding: 0 2px;
+}
+
+/* ---------- Cards da fila ---------- */
+.wq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.wq-card {
+  background: var(--elo-surface);
+  border: 2px solid var(--elo-border);
+  border-left: 6px solid var(--elo-primary);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+.wq-card.status-espera { border-left-color: var(--elo-warning); }
+.wq-card.status-marcado { border-left-color: var(--elo-info); }
+.wq-card.status-atendido { border-left-color: var(--elo-primary); }
+.wq-card.status-cancelado { border-left-color: var(--elo-danger); }
+
+.wq-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.wq-card-name {
+  font-weight: 700;
+  font-size: 17px;
+}
+.wq-card-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.wq-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.wq-badge.status-espera { background: rgba(122, 77, 3, 0.16); color: var(--elo-warning); }
+.wq-badge.status-marcado { background: rgba(20, 63, 117, 0.16); color: var(--elo-info); }
+.wq-badge.status-atendido { background: rgba(29, 114, 10, 0.16); color: var(--elo-primary-dark); }
+.wq-badge.status-cancelado { background: rgba(143, 29, 22, 0.16); color: var(--elo-danger); }
+
+.wq-badge.prioridade-alta { background: rgba(143, 29, 22, 0.16); color: var(--elo-danger); }
+.wq-badge.prioridade-media { background: rgba(122, 77, 3, 0.16); color: var(--elo-warning); }
+.wq-badge.prioridade-baixa { background: rgba(29, 114, 10, 0.16); color: var(--elo-primary-dark); }
+
+.wq-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 20px;
+}
+.wq-info-item { display: flex; flex-direction: column; gap: 4px; }
+.wq-info-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--elo-muted);
+}
+.wq-info-value { font-size: 15.5px; font-weight: 600; color: var(--elo-ink); }
+
+.wq-empty-state {
+  text-align: center;
+  padding: 34px 10px;
+  color: var(--elo-muted);
+  font-size: 15px;
+  font-weight: 500;
+  background: var(--elo-surface);
+  border: 2px dashed var(--elo-border);
+  border-radius: 12px;
+}
+
+/* ---------- Footer ---------- */
+.wq-footer {
+  background: var(--elo-primary);
+  color: #ffffff;
+  text-align: center;
+  font-size: 14.5px;
+  font-weight: 500;
+  padding: 16px 20px;
+}
+
+@media (max-width: 720px) {
+  .wq-card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .wq-card-grid { grid-template-columns: 1fr; }
+  .wq-toolbar { flex-direction: column; }
+}

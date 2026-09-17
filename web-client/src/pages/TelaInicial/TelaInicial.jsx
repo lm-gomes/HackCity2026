@@ -16,17 +16,16 @@ const cards = [
     ),
   },
   {
-    id: "filas-atendimento",
-    label: "Filas de Atendimentos",
-    path: "/filas-atendimento",
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none">
-        <circle cx="16" cy="16" r="5" stroke="currentColor" strokeWidth="2.2" />
-        <circle cx="32" cy="16" r="5" stroke="currentColor" strokeWidth="2.2" />
-        <circle cx="24" cy="14" r="4.2" fill="currentColor" />
-        <path d="M6 38c1.6-6 5.6-9 10-9s8.4 3 10 9" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-        <path d="M22 38c1.6-6 5.6-9 10-9s8.4 3 10 9" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
-      </svg>
+  id: "filas-atendimento",
+  label: "Filas de Atendimentos",
+  path: "/filas-atendimento",
+  icon: (
+    <svg viewBox="0 0 48 48" fill="none">
+      <circle cx="14" cy="15" r="4.5" stroke="currentColor" strokeWidth="2.2" />
+      <path d="M6 35c1.5-5.5 4.8-8 8-8s6.5 2.5 8 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+      <circle cx="33" cy="15" r="4.5" stroke="currentColor" strokeWidth="2.2" />
+      <path d="M25 35c1.5-5.5 4.8-8 8-8s6.5 2.5 8 8" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+    </svg>
     ),
   },
   {
@@ -60,9 +59,8 @@ const cards = [
   },
 ];
 
-export default function TelaInicial({ instituicoes = "Sistema" }) {
+export default function TelaInicial({ instituicoes = "Nomes de Instituições" }) {
   const navigate = useNavigate();
-
 
   function handleSair() {
     navigate("/");
@@ -72,13 +70,13 @@ export default function TelaInicial({ instituicoes = "Sistema" }) {
     <div className="ti-shell">
       <header className="ti-brandbar">
         <span className="ti-brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#F3F8F1" strokeWidth="2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2">
             <circle cx="8" cy="12" r="3" />
             <circle cx="16" cy="12" r="3" />
             <path d="M11 12h2" />
           </svg>
         </span>
-        Sistema
+        Logos/Nome do sistema
       </header>
 
       <nav className="ti-navbar">

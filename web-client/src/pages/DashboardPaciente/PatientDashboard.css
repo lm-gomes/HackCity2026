@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap");
+
+.pd-root {
+  /* Tema claro fixo (não segue o modo escuro do sistema), com mais contraste */
+  --elo-bg: #eef2ee;
+  --elo-surface: #ffffff;
+  --elo-primary: #1d720a;
+  --elo-primary-dark: #145207;
+  --elo-primary-darker: #0f3d05;
+  --elo-ink: #0e130f;
+  --elo-muted: #3f4a43;
+  --elo-border: #8fc77c;
+  --elo-danger: #8f1d16;
+  --elo-warning: #7a4d03;
+  --elo-info: #143f75;
+  --elo-font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --elo-font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--elo-bg);
+  color: var(--elo-ink);
+  font-family: var(--elo-font-body);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.pd-root * { box-sizing: border-box; }
+
+/* ---------- Brand / Nav ---------- */
+.pd-brandbar {
+  background: var(--elo-primary-darker);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 28px;
+  font-family: var(--elo-font-display);
+  font-weight: 600;
+  font-size: 19px;
+}
+.pd-brand-mark {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.6px solid #f3f8f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pd-navbar {
+  background: var(--elo-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 28px;
+}
+.pd-navbar-title { font-weight: 600; font-size: 17px; }
+
+/* ---------- Layout ---------- */
+.pd-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 32px 20px 60px;
+}
+.pd-container {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ---------- Patient info card ---------- */
+.pd-card {
+  background: var(--elo-surface);
+  border: 2px solid var(--elo-border);
+  border-radius: 14px;
+  padding: 28px 32px;
+}
+.pd-card-title {
+  font-family: var(--elo-font-display);
+  font-weight: 600;
+  font-size: 21px;
+  color: var(--elo-primary-darker);
+  margin: 0 0 20px;
+}
+.pd-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 26px;
+}
+.pd-info-item { display: flex; flex-direction: column; gap: 4px; }
+.pd-info-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--elo-muted);
+}
+.pd-info-value { font-size: 16.5px; font-weight: 600; color: var(--elo-ink); }
+
+/* ---------- Action buttons row ---------- */
+.pd-actions-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.pd-action-btn {
+  background: var(--elo-surface);
+  border: 2px solid var(--elo-primary);
+  border-radius: 12px;
+  padding: 18px 16px;
+  font-family: var(--elo-font-body);
+  font-weight: 700;
+  font-size: 15.5px;
+  color: var(--elo-primary-darker);
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.08s ease;
+}
+.pd-action-btn:hover {
+  background: rgba(29, 114, 10, 0.1);
+}
+.pd-action-btn:active { transform: translateY(1px); }
+
+/* ---------- History section header ---------- */
+.pd-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.pd-section-title {
+  font-family: var(--elo-font-display);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--elo-primary-darker);
+}
+.pd-filter select {
+  font-family: var(--elo-font-body);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--elo-ink);
+  background: var(--elo-surface);
+  border: 1.8px solid var(--elo-border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  outline: none;
+}
+.pd-filter select:focus {
+  border-color: var(--elo-primary);
+  box-shadow: 0 0 0 3px rgba(29, 114, 10, 0.15);
+}
+
+/* ---------- History cards ---------- */
+.pd-history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.pd-history-card {
+  background: var(--elo-surface);
+  border: 2px solid var(--elo-border);
+  border-left: 6px solid var(--elo-primary);
+  border-radius: 12px;
+  padding: 20px 24px;
+}
+.pd-history-card.status-espera { border-left-color: var(--elo-warning); }
+.pd-history-card.status-marcado { border-left-color: var(--elo-info); }
+.pd-history-card.status-atendido { border-left-color: var(--elo-primary); }
+.pd-history-card.status-cancelado { border-left-color: var(--elo-danger); }
+
+.pd-history-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.pd-history-name {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.pd-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.pd-badge.status-espera { background: rgba(168, 106, 4, 0.16); color: var(--elo-warning); }
+.pd-badge.status-marcado { background: rgba(20, 63, 117, 0.16); color: var(--elo-info); }
+.pd-badge.status-atendido { background: rgba(29, 114, 10, 0.16); color: var(--elo-primary-dark); }
+.pd-badge.status-cancelado { background: rgba(143, 29, 22, 0.16); color: var(--elo-danger); }
+
+.pd-badge.prioridade-alta { background: rgba(143, 29, 22, 0.16); color: var(--elo-danger); }
+.pd-badge.prioridade-media { background: rgba(168, 106, 4, 0.16); color: var(--elo-warning); }
+.pd-badge.prioridade-baixa { background: rgba(29, 114, 10, 0.16); color: var(--elo-primary-dark); }
+
+.pd-history-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px 20px;
+}
+
+.pd-empty-state {
+  text-align: center;
+  padding: 30px 10px;
+  color: var(--elo-muted);
+  font-size: 14px;
+}
+
+/* ---------- Footer ---------- */
+.pd-footer {
+  background: var(--elo-primary);
+  color: #ffffff;
+  text-align: center;
+  font-size: 14.5px;
+  font-weight: 500;
+  padding: 16px 20px;
+}
+
+@media (max-width: 720px) {
+  .pd-info-grid { grid-template-columns: repeat(2, 1fr); }
+  .pd-actions-row { grid-template-columns: 1fr; }
+  .pd-history-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .pd-info-grid { grid-template-columns: 1fr; }
+  .pd-history-grid { grid-template-columns: 1fr; }
+}

@@ -86,8 +86,8 @@ export default function Login({ onSubmit }) {
       <div className="elo-brand">
         <div>
           <div className="elo-brand-copy">
-            <h1>Um só histórico. Todas informações.</h1>
-            <p>O sistema integrado vai garantir que seus dados sejam unificados!</p>
+            <h1>Tudo que você precisa agora em um só lugar!.</h1>
+            <p>Nosso sistema integrado vai garantir que você fique por dentro de tudo!</p>
           </div>
         </div>
 
@@ -102,8 +102,7 @@ export default function Login({ onSubmit }) {
         <div className="elo-card">
           <h2>Entrar</h2>
           <p className="elo-lede">
-            Acesse com sua conta institucional para consultar o histórico
-            integrado do cidadão.
+            Acesse com sua conta institucional.
           </p>
 
           <form onSubmit={handleSubmit} noValidate>
